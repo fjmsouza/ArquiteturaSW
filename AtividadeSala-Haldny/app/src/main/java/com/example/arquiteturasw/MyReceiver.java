@@ -9,6 +9,6 @@ public class MyReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d("HSS", "recebemos o RECEIVE_BOOT_COMPLETED ");
+        Log.d("FJMS", "recebemos o RECEIVE_BOOT_COMPLETED ");
     }
 }

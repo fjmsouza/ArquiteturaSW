@@ -11,6 +11,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
 
+import java.util.List;
+
 
 public class MainActivity extends AppCompatActivity {
     private MyBroadcastReceiver receiver;
@@ -22,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnGo = findViewById(R.id.button2);
 
+
         Intent intent = new Intent(this, MyIntentService.class);
         intent.putExtra("Tela", "Tela 1");
         startService(intent);
@@ -31,6 +34,13 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(this,Tela2.class));
                 }
         );
+
+        List<MyContact> contacts = ContactsHelper.getContacts(this);
+
+//        for (MyContact contact: contacts){
+
+        Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
+//        }
     }
 
     @Override
@@ -58,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     class MyBroadcastReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
-            Log.d("HSS", "O status do wi-fi mudou");
+            Log.d("FJMS", "O status do wi-fi mudou");
         }
     }
 }

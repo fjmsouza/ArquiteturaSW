@@ -20,7 +20,7 @@ public class ContactsHelper {
             );
 
             if ((cursor!=null ? cursor.getCount() : 0)>0){
-                while (cursor!=null && cursor.moveToNext()){
+                while (cursor.moveToNext()){
                     @SuppressLint("Range")
                     String id = cursor.getString(cursor.getColumnIndex(
                             ContactsContract.Contacts._ID
@@ -34,6 +34,10 @@ public class ContactsHelper {
                     MyContact contact = new MyContact(Integer.parseInt(id), name);
                     contacts.add(contact);
                 }
+            }
+
+            if (cursor != null){
+                cursor.close();
             }
         }
 

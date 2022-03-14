@@ -18,13 +18,13 @@ public class MyIntentService extends IntentService {
 
             String name = intent.getStringExtra("Tela");
 //            Toast.makeText(this,"Nome da tela:" + name, Toast.LENGTH_LONG).show();
-            Log.d("HSS", "chegou aqui ");
+            Log.d("FJMS", "chegou aqui ");
         }
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("HSS", "Service onDestroy: ");
+        Log.d("FJMS", "Service onDestroy: ");
     }
 }

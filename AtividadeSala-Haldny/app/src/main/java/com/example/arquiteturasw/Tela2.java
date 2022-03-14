@@ -4,7 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+
+import java.util.List;
 
 public class Tela2 extends AppCompatActivity {
 
@@ -17,6 +20,9 @@ public class Tela2 extends AppCompatActivity {
         Intent intent = new Intent(this, MyIntentService.class);
         intent.putExtra("Tela", "Tela 2");
         startService(intent);
+
+        List<MyContact> contacts = ContactsHelper.getContacts(this);
+        Log.d("FJMS","ID: "+ contacts.get(1).getId() +" ,Name: "+contacts.get(1).getName());
 
         botaoGo.setOnClickListener(
                 v -> {
