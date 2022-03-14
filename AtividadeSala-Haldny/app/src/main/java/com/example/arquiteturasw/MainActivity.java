@@ -37,10 +37,8 @@ public class MainActivity extends AppCompatActivity {
 
         List<MyContact> contacts = ContactsHelper.getContacts(this);
 
-//        for (MyContact contact: contacts){
-
         Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
-//        }
+
     }
 
     @Override
