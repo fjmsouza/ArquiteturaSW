@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             Log.d("devlog", "on click on button 3");
             Intent intent = new Intent(this, MyService2.class);
 //            intent.getExtras().putString("TEXTO", "Hello Wolrd!");
-            intent.putExtra("TEXTO", "Hello World!");
+            intent.putExtra("TEXTO", "Hello Pessoal!");
             startService(intent);
         });
 
