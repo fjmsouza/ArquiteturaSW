@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnGo = findViewById(R.id.button2);
 
-
         Intent intent = new Intent(this, MyIntentService.class);
         intent.putExtra("Tela", "Tela 1");
         startService(intent);
