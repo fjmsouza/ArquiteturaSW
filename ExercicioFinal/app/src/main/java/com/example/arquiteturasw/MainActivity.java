@@ -6,6 +6,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,6 +18,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private MyBroadcastReceiver receiver;
+//    final PackageManager pm = getPackageManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +38,25 @@ public class MainActivity extends AppCompatActivity {
                 }
         );
 
-        List<MyContact> contacts = ContactsHelper.getContacts(this);
+//        List<MyContact> contacts = ContactsHelper.getContacts(this);
+//
+//        Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
 
-        Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
+        final PackageManager pm = getPackageManager();
+//get a list of installed apps.
+        List<ApplicationInfo> packages = pm.getInstalledApplications(PackageManager.GET_META_DATA);
+
+        for (ApplicationInfo packageInfo : packages) {
+            if (packageInfo.enabled){
+                Log.d("FJMS", "App Instalado: " + packageInfo.packageName +" - Habilitado");
+            }
+            else {
+                Log.d("FJMS", "App Instalado: " + packageInfo.packageName +" - Desabilitado");
+            }
+
+            Log.d("FJMS", "     ");
+        }
+// the getLaunchIntentForPackage returns an intent that you can use with startActivity()
 
     }
 

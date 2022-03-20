@@ -17,8 +17,8 @@ public class MyIntentService extends IntentService {
         if (intent != null) {
 
             String name = intent.getStringExtra("Tela");
-//            Toast.makeText(this,"Nome da tela:" + name, Toast.LENGTH_LONG).show();
-            Log.d("FJMS", "chegou aqui ");
+            Toast.makeText(this,"Nome da tela:" + name, Toast.LENGTH_LONG).show();
+            Log.d("FJMS", name);
         }
     }
 
