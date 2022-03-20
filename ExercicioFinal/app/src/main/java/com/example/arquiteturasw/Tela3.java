@@ -18,6 +18,11 @@ public class Tela3 extends AppCompatActivity {
         List<MyContact> contacts = ContactsHelper.getContacts(this);
         Log.d("FJMS","ID: "+ contacts.get(2).getId() +" ,Name: "+contacts.get(2).getName());
 
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         Intent intent = new Intent(this, MyIntentService.class);
         intent.putExtra("Tela", "Tela 3");
         startService(intent);

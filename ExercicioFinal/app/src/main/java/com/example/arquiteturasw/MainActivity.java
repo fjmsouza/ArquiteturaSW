@@ -18,7 +18,6 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     private MyBroadcastReceiver receiver;
-//    final PackageManager pm = getPackageManager();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,20 +26,12 @@ public class MainActivity extends AppCompatActivity {
 
         Button btnGo = findViewById(R.id.button2);
 
-
-        Intent intent = new Intent(this, MyIntentService.class);
-        intent.putExtra("Tela", "Tela 1");
-        startService(intent);
-
         btnGo.setOnClickListener(
                 v -> {
                     startActivity(new Intent(this,Tela2.class));
                 }
         );
 
-//        List<MyContact> contacts = ContactsHelper.getContacts(this);
-//
-//        Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
 
         final PackageManager pm = getPackageManager();
 //get a list of installed apps.
@@ -74,6 +65,10 @@ public class MainActivity extends AppCompatActivity {
         registerReceiver(receiver,filter);
         registerReceiver(receiver,filter1);
         registerReceiver(receiver,filter2);
+
+        Intent intent = new Intent(this, MyIntentService.class);
+        intent.putExtra("Tela", "Tela 1");
+        startService(intent);
     }
 
     @Override
@@ -87,19 +82,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
     class MyBroadcastReceiver extends BroadcastReceiver{
         @Override
         public void onReceive(Context context, Intent intent) {
-            WifiManager wifi = (WifiManager)getSystemService(Context.WIFI_SERVICE);
-            Log.d("FJMS", "O status do wi-fi mudou");
+            WifiManager wifi = (WifiManager) getSystemService(Context.WIFI_SERVICE);
             if (wifi.isWifiEnabled()){
-                Log.d("FJMS", "wi-fi habilitado");
+                Log.d("FJMS", "Wi-fi habilitado");
             }
             else {
-                Log.d("FJMS", "wi-fi desabilitado");
+                Log.d("FJMS", "Wi-fi desabilitado");
             }
-
-
         }
     }
 }
