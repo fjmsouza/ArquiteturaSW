@@ -10,6 +10,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -35,8 +36,12 @@ public class MainActivity extends AppCompatActivity {
         );
 
         List<MyContact> contacts = ContactsHelper.getContacts(this);
+        String contato = "ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName();
 
-        Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
+        Toast.makeText(this, contato, Toast.LENGTH_SHORT).show();
+        Log.d("FJMS", contato);
+
+//        Log.d("FJMS","ID: "+ contacts.get(0).getId() +" ,Name: "+contacts.get(0).getName());
 
     }
 
