@@ -121,15 +121,15 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("FJMS", "Bateria carregando");
 
                 if (timeToCharge != -1){
-                    Log.d("FJMS", "Tempo restante de carregamento: "+ Double.toString(batteryPct) + "s");
+                    timeToCharge = timeToCharge/60000;
+                    Log.d("FJMS", "Tempo restante de carregamento: "+ Math.round(timeToCharge) + " min");
                 }
-
 
                 if (statusHealth1){
                     Log.d("FJMS", "Bateria - Ok");
                 }
                 else {
-                    Log.d("FJMS", "Bateria - ruim");
+                    Log.d("FJMS", "Bateria - Ruim");
 
                 }
                 if (statusHealth2){
@@ -137,11 +137,11 @@ public class MainActivity extends AppCompatActivity {
 
                 }
                 if (statusHealth3){
-                    Log.d("FJMS", "Bateria - sobreaquecida");
+                    Log.d("FJMS", "Bateria - Sobreaquecida");
 
                 }
                 if (statusHealth4){
-                    Log.d("FJMS", "Bateria - sobretensão");
+                    Log.d("FJMS", "Bateria - Sobretensão");
 
                 }
 
